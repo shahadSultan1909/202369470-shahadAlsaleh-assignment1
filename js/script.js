@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-});
 
   /*Greeting Message by Time of Day*/
   const greetingEl = document.getElementById('greeting');
@@ -125,3 +124,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* Footer Year */
   document.getElementById('year').textContent = new Date().getFullYear();
+
+});
