@@ -370,3 +370,144 @@ img {
   padding: 8px 16px 8px 12px;
   border-radius: 20px;
 }
+
+/*Achievements Section*/
+.achievements {
+  background: var(--bg);
+}
+
+.achievement-list {
+  border-top: 1px solid var(--line);
+}
+
+.achievement-item {
+  display: flex;
+  align-items: baseline;
+  gap: 28px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.achievement-year {
+  flex-shrink: 0;
+  width: 64px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--rose-deep);
+}
+
+.achievement-desc {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+/*Projects Section*/
+.projects-list {
+  border-top: 1px solid var(--line);
+}
+
+.project-row {
+  display: grid;
+  grid-template-columns: 96px 1fr auto;
+  gap: 28px;
+  align-items: start;
+  padding: 44px 0;
+  border-bottom: 1px solid var(--line);
+  transition: padding-left 0.25s ease;
+}
+
+.project-row:hover {
+  padding-left: 8px;
+}
+
+.project-media {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.project-thumb {
+  width: 72px;
+  height: 72px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--surface);
+}
+
+.project-thumb svg {
+  width: 34px;
+  height: 34px;
+}
+
+.thumb-01 {
+  background: linear-gradient(150deg, var(--rose) 0%, var(--rose-deep) 100%);
+}
+
+.thumb-02 {
+  background: linear-gradient(150deg, var(--sage) 0%, #7fae93 100%);
+}
+
+.thumb-03 {
+  background: linear-gradient(150deg, var(--lilac) 0%, var(--lilac-deep) 100%);
+}
+
+.project-index {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.project-body h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.project-body p {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  max-width: 60ch;
+  margin-bottom: 18px;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tags span {
+  background: var(--bg-alt);
+  color: var(--rose-deep);
+  font-size: 0.76rem;
+  font-weight: 600;
+  padding: 5px 13px;
+  border-radius: 20px;
+}
+
+.project-link {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--ink);
+  white-space: nowrap;
+  padding-top: 4px;
+  transition: color 0.2s ease;
+}
+
+.project-link span {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.project-link:hover {
+  color: var(--rose-deep);
+}
+
+.project-link:hover span {
+  transform: translateX(4px);
+}
