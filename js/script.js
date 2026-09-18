@@ -42,3 +42,86 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+  /*Greeting Message by Time of Day*/
+  const greetingEl = document.getElementById('greeting');
+  const hour = new Date().getHours();
+  let greetingText = 'Hello, welcome!';
+
+  if (hour >= 5 && hour < 12) {
+    greetingText = 'Good morning, welcome!';
+  } else if (hour >= 12 && hour < 17) {
+    greetingText = 'Good afternoon, welcome!';
+  } else if (hour >= 17 && hour < 21) {
+    greetingText = 'Good evening, welcome!';
+  } else {
+    greetingText = 'Working late? Welcome!';
+  }
+
+  greetingEl.textContent = greetingText;
+
+  /*Contact Form Validation*/
+  const form = document.getElementById('contact-form');
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const messageInput = document.getElementById('message');
+  const successMsg = document.getElementById('form-success');
+
+  const nameError = document.getElementById('name-error');
+  const emailError = document.getElementById('email-error');
+  const messageError = document.getElementById('message-error');
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  function validateField(input, errorEl, condition, message) {
+    if (!condition) {
+      input.classList.add('invalid');
+      errorEl.textContent = message;
+      return false;
+    } else {
+      input.classList.remove('invalid');
+      errorEl.textContent = '';
+      return true;
+    }
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    successMsg.classList.remove('show');
+
+    const isNameValid = validateField(
+      nameInput, nameError,
+      nameInput.value.trim().length >= 2,
+      'Please enter your name (at least 2 characters).'
+    );
+
+    const isEmailValid = validateField(
+      emailInput, emailError,
+      emailPattern.test(emailInput.value.trim()),
+      'Please enter a valid email address.'
+    );
+
+    const isMessageValid = validateField(
+      messageInput, messageError,
+      messageInput.value.trim().length >= 10,
+      'Message should be at least 10 characters.'
+    );
+
+    if (isNameValid && isEmailValid && isMessageValid) {
+      successMsg.classList.add('show');
+      form.reset();
+
+      setTimeout(() => {
+        successMsg.classList.remove('show');
+      }, 4000);
+    }
+  });
+
+  [nameInput, emailInput, messageInput].forEach(input => {
+    input.addEventListener('input', () => {
+      input.classList.remove('invalid');
+    });
+  });
+
+  /* Footer Year */
+  document.getElementById('year').textContent = new Date().getFullYear();
